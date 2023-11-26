@@ -1,7 +1,7 @@
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { TrackFlight } from '../Screens/TrackFlight';
 import { FlightDetails } from '../Screens/FlightDetails';
+import { SearcherNavigator } from './SearcherNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +15,7 @@ export const AppNavigator = () => {
                 },
             }}
         >
-            <Stack.Screen name='TrackFlight' component={TrackFlight} />
+            <Stack.Screen name='SearcherNavigator' component={SearcherNavigator} />
             <Stack.Screen name='FlightDetails' component={FlightDetails} />
         </Stack.Navigator>
     )
