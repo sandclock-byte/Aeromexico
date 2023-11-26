@@ -11,6 +11,7 @@ export const DepartureDateInput = () => {
             </InfoContainer>
             <Icon
                 size={18.4}
+                name='calendar'
             />
         </Container>
     )

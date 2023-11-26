@@ -14,7 +14,7 @@ type Props = MaterialTopTabScreenProps<RootTabScreenList, 'FlightNumberScreen'>;
 export const FlightNumberSearcher = ({ navigation }: Props) => {
 
     const handleSearchFlight = () => { 
-        navigation.getParent()?.navigate('FlightDetails');
+        navigation.getParent()?.navigate('FlightResults');
     }
 
     const handleSearchByDestination = () => {

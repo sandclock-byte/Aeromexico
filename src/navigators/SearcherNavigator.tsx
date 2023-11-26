@@ -1,6 +1,6 @@
 import { MaterialTopTabBarProps, createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { FlightNumberSearcher } from '../Screens/FlightNumberSearcher';
-import { DestinationScreen } from '../Screens/DestinationScreen';
+import { FlightNumberSearcher } from '../screens/FlightNumberSearcher';
+import { DestinationScreen } from '../screens/DestinationScreen';
 import { TabBarSearcherOptions } from '../components/TabBarSearcherOptions';
 
 
