@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import { Button } from '../components/Button';
 import { FlightNumberInput } from '../components/FlightNumberInput';
+import { DepartureDateInput } from '../components/DepartureDateInput';
 
 const { height, width } = Dimensions.get('window');
 
@@ -14,6 +15,7 @@ export const FlightNumberScreen = () => {
                     <FlightNumberInput
                         flightNumber='500'
                     />
+                    <DepartureDateInput />
                 </InputsContainer>
                 <Button
                     title='Search Flight'

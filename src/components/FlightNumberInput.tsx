@@ -25,10 +25,12 @@ export const FlightNumberInput = ({ flightNumber = '500' }: Props) => {
 
 const Container = styled.View`
     width: 35%;
+    height: 64px;
     border-radius: 12px;
     border: 2px solid #000;
     padding: 10px;
     justify-content: center;
+    margin-right: 15px;
 `
 
 const Title = styled.Text`
@@ -47,13 +49,12 @@ const Prefix = styled.Text`
     font-size: 16px;
     font-family: Roboto-Bold;
     color: rgba(0, 0, 0, 0.3);
-    margin: 0px;
 `
 
 const Input = styled.TextInput`
     font-size: 16px;
     font-family: Roboto-Bold;
     color: #000000;
-    padding: 0px 0px 0px 2px;
+    padding: 0px 0px 0px 5px;
     align-items: center;
 `
