@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton } from '../IconButton';
 import styled from 'styled-components/native';
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 import { useNavigation } from '@react-navigation/native';
 
 export const Header = () => {

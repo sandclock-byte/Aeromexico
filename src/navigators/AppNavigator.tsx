@@ -6,6 +6,12 @@ import { FlightResults } from '../screens/FlightResults';
 
 const Stack = createNativeStackNavigator();
 
+export type RootStackParamList = {
+    SearcherNavigator: undefined;
+    FlightResults: undefined;
+    FlightDetails: undefined;
+  };
+
 export const AppNavigator = () => {
     return (
         <Stack.Navigator

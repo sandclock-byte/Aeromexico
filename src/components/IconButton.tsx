@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableWithoutFeedback, Animated, ViewStyle } from 'react-native';
 import { useAnimationButton } from '../hooks/useAnimationButton';
-import Icon, { IconName } from './Icon';
+import { Icon, IconName } from './Icon';
 import styled from 'styled-components/native';
 
 type Props = {

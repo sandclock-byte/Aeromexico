@@ -2,11 +2,13 @@
 import { ViewStyle } from 'react-native';
 import Calendar from '../../assets/icons/calendar.svg';
 import BackArrow from '../../assets/icons/back_arrow.svg';
+import Airplane from '../../assets/icons/airplane.svg';
 import styled from 'styled-components/native';
 
 const icons = {
     calendar: Calendar,
     back_arrow: BackArrow,
+    airplane: Airplane
 };
 
 export type IconName = keyof typeof icons;
@@ -19,7 +21,7 @@ type Props = {
 }
 
 
-export default function Icon({ name = 'calendar', size = 30, color = 'black', style = {} }: Props) {
+export const Icon = ({ name = 'calendar', size = 30, color = 'black', style = {} }: Props) => {
 
     const IconComponent = icons[name];
 

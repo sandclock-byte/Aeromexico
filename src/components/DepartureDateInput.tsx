@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import Icon from './Icon';
+import { Icon } from './Icon';
 
 export const DepartureDateInput = () => {
     return (
