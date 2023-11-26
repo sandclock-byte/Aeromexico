@@ -1,9 +1,7 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Animated, Dimensions } from 'react-native';
+import { TouchableWithoutFeedback, Animated } from 'react-native';
 import { useAnimationButton } from '../hooks/useAnimationButton';
 import styled from 'styled-components/native';
-
-const { height } = Dimensions.get('window');
 
 type Props = {
     onPress?: () => void;
@@ -32,14 +30,14 @@ export const Button = ({ onPress = () => { }, title = 'Button' }: Props) => {
 
 const AnimatedView = styled(Animated.View)`
     background-color: #000;
-    height: ${height * 0.06}px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    padding: 16px 24px 16px 24px;
 `;
 
 const Title = styled.Text`
-    font-size: ${height * 0.025}px;
+    font-size: 16px;
     color: #FFFFFF;
-    font-family: Roboto-Medium;
+    font-family: Roboto-Bold;
 `;

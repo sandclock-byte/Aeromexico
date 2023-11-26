@@ -85,6 +85,7 @@ const OptionsContainer = styled.View`
     border-radius: 4px;
     border: 1px #D6D6D6 solid;
     background-color: #FFFFFF;
+    margin-bottom: -22.5px;
 `
 
 const ButtonsContainer = styled.View`

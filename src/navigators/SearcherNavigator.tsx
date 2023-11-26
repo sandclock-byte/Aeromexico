@@ -1,9 +1,14 @@
 import { MaterialTopTabBarProps, createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { FlightNumberScreen } from '../Screens/FlightNumberScreen';
+import { FlightNumberSearcher } from '../Screens/FlightNumberSearcher';
 import { DestinationScreen } from '../Screens/DestinationScreen';
 import { TabBarSearcherOptions } from '../components/TabBarSearcherOptions';
 
-const Tab = createMaterialTopTabNavigator();
+
+export type RootTabScreenList = {
+    FlightNumberScreen: undefined;
+    DestinationScreen: undefined;
+};
+const Tab = createMaterialTopTabNavigator<RootTabScreenList>();
 
 export const SearcherNavigator = () => {
     return (
@@ -13,7 +18,7 @@ export const SearcherNavigator = () => {
                 backgroundColor: '#FFF'
             }}
         >
-            <Tab.Screen name="FlightNumberScreen" component={FlightNumberScreen} />
+            <Tab.Screen name="FlightNumberScreen" component={FlightNumberSearcher} />
             <Tab.Screen name="DestinationScreen" component={DestinationScreen} />
         </Tab.Navigator>
     )
