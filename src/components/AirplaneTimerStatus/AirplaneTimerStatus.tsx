@@ -23,7 +23,7 @@ export const AirplaneTimerStatus = ({ progress, hideDuration }: Props) => {
                     <Place>MEX</Place>
                     <DurationContainer>
                         {
-                            hideDuration && (
+                            !hideDuration && (
                                 <Duration>2h 28m</Duration>
                             )
                         }

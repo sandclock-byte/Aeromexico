@@ -1,14 +1,19 @@
 
 import { ViewStyle } from 'react-native';
-import Calendar from '../../assets/icons/calendar.svg';
-import BackArrow from '../../assets/icons/back_arrow.svg';
-import Airplane from '../../assets/icons/airplane.svg';
 import styled from 'styled-components/native';
 
+import Airplane from '../../assets/icons/airplane.svg';
+import Arrival from '../../assets/icons/arrival.svg';
+import BackArrow from '../../assets/icons/back_arrow.svg';
+import Calendar from '../../assets/icons/calendar.svg';
+import Departure from '../../assets/icons/departure.svg';
+
 const icons = {
-    calendar: Calendar,
+    airplane: Airplane,
+    arrival: Arrival,
     back_arrow: BackArrow,
-    airplane: Airplane
+    calendar: Calendar,
+    departure: Departure,
 };
 
 export type IconName = keyof typeof icons;

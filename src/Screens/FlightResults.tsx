@@ -35,7 +35,8 @@ export const FlightResults = () => {
 const Container = styled.View<{ paddingTop: number }>`
     flex: 1;
     padding-top: ${({ paddingTop }) => paddingTop}px;
-    paddingHorizontal: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
 `;
 
 const ResultList = styled.FlatList`
