@@ -3,10 +3,11 @@ import styled from 'styled-components/native';
 
 import { FlightStatus } from '../../../interfaces/FlightStatusResponse';
 import { Icon } from '../../Icon';
-import { FavoriteSwitch, StatusTag, TimerStatus } from './components';
+import { FavoriteSwitch, StatusTag } from './components';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../navigators/AppNavigator';
+import { AirplaneTimerStatus } from '../../AirplaneTimerStatus';
 
 type Props = {
   item: FlightStatus;
@@ -28,7 +29,13 @@ export const FlightStatusCard = ({ item }: Props) => {
         />
         <FavoriteSwitch />
       </Header>
-      <TimerStatus />
+
+      <Body>
+        <AirplaneTimerStatus
+          progress={0.7}
+        />
+      </Body>
+
       <Footer>
         <FlightNumber>{`${'AM'} ${500}`}</FlightNumber>
         <DetailsButton
@@ -58,6 +65,10 @@ const Header = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+`;
+
+const Body = styled.View`
+    padding: 15px 15px 10px 15px;
 `;
 
 const Footer = styled.View`

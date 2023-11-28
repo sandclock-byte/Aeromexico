@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Icon } from '../../../Icon';
+import { Icon } from '../Icon';
+import { useAirplaneStatus } from '../../hooks/useAirplaneStatus';
 
 export const Airplane = () => {
+
+    const { progress } = useAirplaneStatus();
+
     return (
         <Container>
-            <Line>
+            <Line
+                progress={progress}
+            >
                 <IconContainer>
                     <Icon
                         name='airplane'
@@ -24,9 +30,9 @@ const Container = styled.View`
     width: 100%;
 `;
 
-const Line = styled.View`
+const Line = styled.View<{ progress: number }>`
     height: 2px;
-    width: 100%;
+    width: ${({ progress }) => `${progress * 100}%`};
     background-color: #000000;
     border-radius: 1px;
 `;
