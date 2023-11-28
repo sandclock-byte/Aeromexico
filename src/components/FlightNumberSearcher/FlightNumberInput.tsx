@@ -42,7 +42,8 @@ const Title = styled.Text`
 const InputContainer = styled.View`
     flex-direction: row;
     align-items: center;
-    margin-vertical: ${Platform.OS === 'android' ? -4 : 0}px;
+    margin-top: ${Platform.OS === 'android' ? -4 : 0}px;
+    margin-bottom: ${Platform.OS === 'android' ? -4 : 0}px;
 `
 
 const Prefix = styled.Text`
