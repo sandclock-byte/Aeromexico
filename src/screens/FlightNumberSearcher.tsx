@@ -28,7 +28,9 @@ export const FlightNumberSearcher = ({ navigation }: Props) => {
                     <FlightNumberInput
                         flightNumber='500'
                     />
-                    <DateInput />
+                    <DateInput 
+                        date={new Date(2023,10,21)}
+                    />
                 </InputsContainer>
                 <Button
                     title='Search Flight'

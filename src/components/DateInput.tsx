@@ -1,19 +1,37 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Icon } from './Icon';
+import { TouchableWithoutFeedback } from 'react-native';
+import { DateService } from '../classes/DateService';
 
-export const DateInput = () => {
+type Props = {
+    date?: Date;
+
+};
+
+export const DateInput = ({ date = new Date() }: Props) => {
+
+    const handlePress = () => {
+        console.log('Open date picker');
+    }
+
+    const dateFormat = new DateService(date).display();
+
     return (
-        <Container>
-            <InfoContainer>
-                <Title>Date of departure</Title>
-                <Input>Tuesday, Nov 21</Input>
-            </InfoContainer>
-            <Icon
-                size={18.4}
-                name='calendar'
-            />
-        </Container>
+        <TouchableWithoutFeedback
+            onPress={handlePress}
+        >
+            <Container>
+                <InfoContainer>
+                    <Title>Date of departure</Title>
+                    <Input>{dateFormat}</Input>
+                </InfoContainer>
+                <Icon
+                    size={18.4}
+                    name='calendar'
+                />
+            </Container>
+        </TouchableWithoutFeedback>
     )
 }
 
