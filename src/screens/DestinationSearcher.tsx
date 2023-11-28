@@ -4,6 +4,8 @@ import { Text, View, Dimensions } from 'react-native';
 import { RootTabScreenList } from '../navigators/SearcherNavigator';
 import styled from 'styled-components/native';
 import { PlaceInput } from '../components/PlaceInput';
+import { DateInput } from '../components/DateInput';
+import { Button } from '../components/Button';
 
 const { width } = Dimensions.get('window');
 
@@ -25,6 +27,12 @@ export const DestinationSearcher = ({ }: Props) => {
             placeCode='CUN'
           />
         </PlaceInputsContainer>
+        <DateInputContainer>
+          <DateInput />
+        </DateInputContainer>
+        <Button
+          title='Search Flights'
+        />
       </FormContainer>
     </Container>
   )
@@ -42,4 +50,10 @@ const FormContainer = styled.View`
 
 const PlaceInputsContainer = styled.View`
     flex-direction: row;
+`;
+
+const DateInputContainer = styled.View`
+  flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
 `;

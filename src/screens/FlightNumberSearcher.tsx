@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import { Button } from '../components/Button';
 import { FlightNumberInput } from '../components/FlightNumberSearcher';
-import { DepartureDateInput } from '../components/DepartureDateInput';
+import { DateInput } from '../components/DateInput';
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
 import { RootTabScreenList } from '../navigators/SearcherNavigator';
 
@@ -28,7 +28,7 @@ export const FlightNumberSearcher = ({ navigation }: Props) => {
                     <FlightNumberInput
                         flightNumber='500'
                     />
-                    <DepartureDateInput />
+                    <DateInput />
                 </InputsContainer>
                 <Button
                     title='Search Flight'

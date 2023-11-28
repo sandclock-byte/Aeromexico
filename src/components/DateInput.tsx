@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Icon } from './Icon';
 
-export const DepartureDateInput = () => {
+export const DateInput = () => {
     return (
         <Container>
             <InfoContainer>
                 <Title>Date of departure</Title>
-                <DateInput>Tuesday, Nov 21</DateInput>
+                <Input>Tuesday, Nov 21</Input>
             </InfoContainer>
             <Icon
                 size={18.4}
@@ -25,7 +25,6 @@ const Container = styled.View`
     padding: 10px;
     align-items: center;
     flex-direction: row;
-    height: 64px;
 `
 
 const InfoContainer = styled.View`
@@ -39,7 +38,7 @@ const Title = styled.Text`
     font-family: Roboto-Regular;
 `
 
-const DateInput = styled.Text`
+const Input = styled.Text`
     font-size: 16px;
     font-family: Roboto-Bold;
     color: #000000;
