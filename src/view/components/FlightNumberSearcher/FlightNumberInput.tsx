@@ -2,21 +2,22 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
+import { useSearchingData } from '../../../view-model/hooks/useSearchingData';
 
-type Props = {
-    flightNumber: string;
-}
+export const FlightNumberInput = () => {
 
-export const FlightNumberInput = ({ flightNumber = '500' }: Props) => {
+    const { flightSearch } = useSearchingData();
+    const { carrier, number } = flightSearch.flightNumber;
+
     return (
         <Container>
             <Title>Flight Number</Title>
             <InputContainer>
                 <Prefix>
-                    AM
+                    {carrier}
                 </Prefix>
                 <Input
-                    value={flightNumber}
+                    value={number}
                 />
             </InputContainer>
         </Container>

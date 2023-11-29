@@ -75,6 +75,7 @@ const Container = styled.View`
     border-radius: 12px;
     border: 2px solid #000;
     overflow: hidden;
+    margin-bottom: 20px;
 `;
 
 const Header = styled.View`

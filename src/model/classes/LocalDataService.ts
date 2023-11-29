@@ -15,7 +15,6 @@ export class LocalDataService implements FlightProvider {
 
     async getFlightsByDestination({ destination, origin, date }: GetFlightByDestinationParams): Promise<FlightStatus[]> {
         await delay(2000);
-        console.log({ destination, origin, date });
         const { flightStatusCollection } = OrigenDestinoResponse;
         return flightStatusCollection;
     }

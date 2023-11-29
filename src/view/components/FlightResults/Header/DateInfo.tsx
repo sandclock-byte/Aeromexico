@@ -1,12 +1,17 @@
 import styled from 'styled-components/native'
 import { Icon } from '../../Icon'
 import { DateService } from '../../../../view-model/classes/DateService';
+import { useSearchingData } from '../../../../view-model/hooks/useSearchingData';
 
 export const DateInfo = () => {
 
-    const dateDisplay = new DateService(new Date()).display();
+    const { flightSearch } = useSearchingData();
+    const { dateOfDeparture } = flightSearch;
+
+    const dateDisplay = new DateService(new Date(dateOfDeparture)).display();
 
     const handlePress = () => {
+        // TODO: create date picker and set value to flightSearch.dateOfDeparture and get new flights
         console.log('Open date picker');
     }
 

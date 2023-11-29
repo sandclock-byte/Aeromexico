@@ -6,6 +6,7 @@ import styled from 'styled-components/native';
 import { PlaceInput } from '../components/PlaceInput';
 import { DateInput } from '../components/DateInput';
 import { Button } from '../components/Button';
+import { useSearchingData } from '../../view-model/hooks/useSearchingData';
 
 const { width } = Dimensions.get('window');
 
@@ -13,7 +14,11 @@ type Props = MaterialTopTabScreenProps<RootTabScreenList, 'DestinationSearcher'>
 
 export const DestinationSearcher = ({ navigation }: Props) => {
 
+  const { flightSearch, searchFlightByDestination } = useSearchingData();
+  const { departure, arrival, dateOfDeparture } = flightSearch;
+
   const handleSearchFlight = () => {
+    searchFlightByDestination();
     navigation.getParent()?.navigate('FlightResults');
   }
 
@@ -28,18 +33,18 @@ export const DestinationSearcher = ({ navigation }: Props) => {
         <PlaceInputsContainer>
           <PlaceInput
             typeInput='Origin'
-            place='Mexico City'
-            placeCode='MEX'
+            place={departure?.name || 'Mexico City'}
+            placeCode={departure?.code || 'MEX'}
           />
           <PlaceInput
             typeInput='Destination'
-            place='Cancún'
-            placeCode='CUN'
+            place={arrival?.name || 'Cancún'}
+            placeCode={arrival?.code || 'CUN'}
           />
         </PlaceInputsContainer>
         <DateInputContainer>
           <DateInput
-            date={new Date(2023, 10, 21)}
+            date={new Date(dateOfDeparture)}
           />
         </DateInputContainer>
         <Button
@@ -54,7 +59,7 @@ export const DestinationSearcher = ({ navigation }: Props) => {
           <HintText>
             Try searching by{' '}
             <LinkText
-              onPress={handleSearchFlight}
+              onPress={handleSearchByFlightNumber}
             >
               flight number
             </LinkText>

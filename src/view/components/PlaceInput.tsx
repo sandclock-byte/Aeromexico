@@ -12,6 +12,7 @@ type TypeInput = 'Origin' | 'Destination';
 export const PlaceInput = ({ typeInput, place, placeCode }: Props) => {
 
     const handlePress = () => {
+        // TODO: create place picker and set value to flightSearch.departure/arrival
         console.log('Open place picker');
     }
 

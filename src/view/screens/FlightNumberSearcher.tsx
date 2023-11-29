@@ -15,6 +15,7 @@ type Props = MaterialTopTabScreenProps<RootTabScreenList, 'FlightNumberSearcher'
 export const FlightNumberSearcher = ({ navigation }: Props) => {
 
     const { flightSearch, searchFlightByNumber } = useSearchingData();
+    const { dateOfDeparture } = flightSearch;
 
     const handleSearchFlight = () => {
         navigation.getParent()?.navigate('FlightResults');
@@ -29,11 +30,9 @@ export const FlightNumberSearcher = ({ navigation }: Props) => {
         <Container>
             <FormContainer>
                 <InputsContainer>
-                    <FlightNumberInput
-                        flightNumber='500'
-                    />
+                    <FlightNumberInput/>
                     <DateInput
-                        date={new Date(2023, 10, 21)}
+                        date={new Date(dateOfDeparture)}
                     />
                 </InputsContainer>
                 <Button

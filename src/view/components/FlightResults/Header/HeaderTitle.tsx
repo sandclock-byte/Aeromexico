@@ -1,11 +1,14 @@
 import styled from "styled-components/native";
 import { Icon } from "../../Icon";
+import { useSearchingData } from "../../../../view-model/hooks/useSearchingData";
 
 export const HeaderTitle = () => {
 
-  const typeSearcher = 'flightNumber';
+  const { flightSearch } = useSearchingData();
 
-  if (typeSearcher === 'flightNumber') {
+  const { searchingtype } = flightSearch;
+
+  if (searchingtype === 'flightNumber') {
     return (
       <FlightNumberTitle />
     )
@@ -18,24 +21,35 @@ export const HeaderTitle = () => {
 }
 
 const FlightNumberTitle = () => {
+
+  const { flightSearch } = useSearchingData();
+  const { carrier, number } = flightSearch.flightNumber;
+
   return (
     <Container>
-      <Title>AM 500</Title>
+      <Title>{`${carrier} ${number}`}</Title>
     </Container>
   )
 };
 
 const DestinationTitle = () => {
+
+  const { flightSearch } = useSearchingData();
+  const { departure, arrival } = flightSearch;
+
+  const departureCode = departure?.code || '';
+  const arrivalCode = arrival?.code || '';
+
   return (
     <Container>
-      <Title>MEX</Title>
+      <Title>{departureCode}</Title>
       <IconContainer>
         <Icon
           name='arrow'
           size={20}
         />
       </IconContainer>
-      <Title>CUN</Title>
+      <Title>{arrivalCode}</Title>
     </Container>
   )
 };

@@ -11,6 +11,7 @@ type Props = {
 export const DateInput = ({ date = new Date() }: Props) => {
 
     const handlePress = () => {
+        // TODO: create date picker and set value to flightSearch.dateOfDeparture
         console.log('Open date picker');
     }
 
