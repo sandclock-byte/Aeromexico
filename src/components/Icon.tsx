@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 
 import Airplane from '../../assets/icons/airplane.svg';
 import Arrival from '../../assets/icons/arrival.svg';
+import Arrow from '../../assets/icons/arrow.svg';
 import BackArrow from '../../assets/icons/back_arrow.svg';
 import Calendar from '../../assets/icons/calendar.svg';
 import Departure from '../../assets/icons/departure.svg';
@@ -11,6 +12,7 @@ import Departure from '../../assets/icons/departure.svg';
 const icons = {
     airplane: Airplane,
     arrival: Arrival,
+    arrow: Arrow,
     back_arrow: BackArrow,
     calendar: Calendar,
     departure: Departure,
