@@ -3,10 +3,9 @@ import { FlightNumberSearcher } from '../screens/FlightNumberSearcher';
 import { DestinationSearcher } from '../screens/DestinationSearcher';
 import { TabBarSearcherOptions } from '../components/TabBarSearcherOptions';
 
-
 export type RootTabScreenList = {
-    FlightNumberScreen: undefined;
-    DestinationScreen: undefined;
+    FlightNumberSearcher: undefined;
+    DestinationSearcher: undefined;
 };
 const Tab = createMaterialTopTabNavigator<RootTabScreenList>();
 
@@ -21,8 +20,8 @@ export const SearcherNavigator = () => {
                 backgroundColor: '#FFF'
             }}
         >
-            <Tab.Screen name="FlightNumberScreen" component={FlightNumberSearcher} />
-            <Tab.Screen name="DestinationScreen" component={DestinationSearcher} />
+            <Tab.Screen name='FlightNumberSearcher' component={FlightNumberSearcher} />
+            <Tab.Screen name='DestinationSearcher' component={DestinationSearcher} />
         </Tab.Navigator>
     )
 }

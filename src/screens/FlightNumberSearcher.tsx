@@ -9,7 +9,7 @@ import { RootTabScreenList } from '../navigators/SearcherNavigator';
 
 const { width } = Dimensions.get('window');
 
-type Props = MaterialTopTabScreenProps<RootTabScreenList, 'FlightNumberScreen'>;
+type Props = MaterialTopTabScreenProps<RootTabScreenList, 'FlightNumberSearcher'>;
 
 export const FlightNumberSearcher = ({ navigation }: Props) => {
 
@@ -18,7 +18,7 @@ export const FlightNumberSearcher = ({ navigation }: Props) => {
     }
 
     const handleSearchByDestination = () => {
-        navigation.navigate('DestinationScreen');
+        navigation.navigate('DestinationSearcher');
     }
 
     return (

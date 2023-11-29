@@ -9,12 +9,16 @@ import { Button } from '../components/Button';
 
 const { width } = Dimensions.get('window');
 
-type Props = MaterialTopTabScreenProps<RootTabScreenList, 'DestinationScreen'>;
+type Props = MaterialTopTabScreenProps<RootTabScreenList, 'DestinationSearcher'>;
 
 export const DestinationSearcher = ({ navigation }: Props) => {
 
   const handleSearchFlight = () => {
     navigation.getParent()?.navigate('FlightResults');
+  }
+
+  const handleSearchByFlightNumber = () => {
+    navigation.navigate('FlightNumberSearcher');
   }
 
 

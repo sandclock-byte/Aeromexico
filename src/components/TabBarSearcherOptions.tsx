@@ -20,12 +20,12 @@ export const TabBarSearcherOptions = ({ navigation, state }: MaterialTopTabBarPr
                     <Button
                         title='Flight Number'
                         isActive={index === 0}
-                        onPress={() => navigation.navigate('FlightNumberScreen')}
+                        onPress={() => navigation.navigate('FlightNumberSearcher')}
                     />
                     <Button
                         title='Destination'
                         isActive={index === 1}
-                        onPress={() => navigation.navigate('DestinationScreen')}
+                        onPress={() => navigation.navigate('DestinationSearcher')}
                     />
                 </ButtonsContainer>
             </OptionsContainer>
