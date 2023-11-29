@@ -19,7 +19,7 @@ export const FlightStatusCard = ({ item }: Props) => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { setFlightStatus } = useFlightStatus();
 
-  const { segment } = item;
+  const { segment, totalFlightTimeInMinutes } = item;
   const {
     departureAirport,
     departureDateTime,
@@ -51,6 +51,7 @@ export const FlightStatusCard = ({ item }: Props) => {
           arrivalPlace={arrivalAirport}
           departureDate={new Date(departureDateTime)}
           departurePlace={departureAirport}
+          flightTime={totalFlightTimeInMinutes}
           status={flightStatus}
         />
       </Body>

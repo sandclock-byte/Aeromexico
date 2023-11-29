@@ -6,7 +6,7 @@ import { useSelector } from './useSelector';
 export const useFlightStatus = () => {
 
     const dispatch = useDispatch();
-    const flightStatus = useSelector(state => state.flightSearch);
+    const { flightStatus } = useSelector(state => state.flightStatus);
 
     const setFlightStatus = (flightStatus: FlightStatus) => {
         dispatch(updateFlightStatus(flightStatus));

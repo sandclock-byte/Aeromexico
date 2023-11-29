@@ -2,20 +2,36 @@ import { View } from 'react-native';
 import styled from 'styled-components/native';
 
 import { StatusTag } from './StatusTag';
+import { useFlightStatus } from '../../../view-model/hooks/useFlightStatus';
+import { FlightStatus } from '../../../view-model/interfaces/FlightStatus';
+import { DateService } from '../../../view-model/classes/DateService';
 
 export const FlightInfo = () => {
+
+    const { flightStatus } = useFlightStatus();
+
+    const { segment } = flightStatus as FlightStatus;
+    const {
+        marketingCarrier,
+        marketingFlightCode,
+        departureDateTime,
+        flightStatus: status,
+    } = segment;
+
+    const displayDate = new DateService(new Date(departureDateTime)).display();
+
     return (
         <Container >
             <View>
                 <FlightNumber>
-                    <AirlineText>{`${'AM'} `}</AirlineText>
-                    {'500'}
+                    <AirlineText>{`${marketingCarrier} `}</AirlineText>
+                    {marketingFlightCode}
                 </FlightNumber>
-                <FlightDate>{'Tuesday, Nov 21'}</FlightDate>
+                <FlightDate>{displayDate}</FlightDate>
             </View>
 
             <StatusTag
-                status='ARRIVED'
+                status={status}
             />
         </Container>
     )

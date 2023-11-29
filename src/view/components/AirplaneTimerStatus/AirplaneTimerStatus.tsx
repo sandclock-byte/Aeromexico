@@ -10,6 +10,7 @@ type Props = {
     arrivalPlace: string;
     departureDate: Date;
     departurePlace: string;
+    flightTime: number;
     hideDuration?: boolean;
     status: string;
 };
@@ -19,6 +20,7 @@ export const AirplaneTimerStatus = ({
     arrivalPlace,
     departureDate,
     departurePlace,
+    flightTime,
     hideDuration,
     status,
 }: Props) => {
@@ -35,7 +37,7 @@ export const AirplaneTimerStatus = ({
     const departureTime = new DateService(departureDate).displayTime();
     const arrivalTime = new DateService(arrivalDate).displayTime();
 
-    const duration = new DateService(arrivalDate).timeRemaining(departureDate);
+    const duration = DateService.timeRemaining(flightTime);
 
     return (
         <AirplaneStatusProvider progress={progress}>

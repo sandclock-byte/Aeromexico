@@ -2,6 +2,9 @@ import { View } from 'react-native';
 import styled from 'styled-components/native';
 
 import { Icon } from '../Icon';
+import { useFlightStatus } from '../../../view-model/hooks/useFlightStatus';
+import { FlightStatus } from '../../../view-model/interfaces/FlightStatus';
+import { DateService } from '../../../view-model/classes/DateService';
 
 type TableProps = {
     type: 'Departure' | 'Arrival';
@@ -15,6 +18,21 @@ type DataTable = {
 }
 
 export const DetailsTable = () => {
+
+    const { flightStatus } = useFlightStatus();
+
+    const { 
+        segment, 
+        boardingTerminal,
+        boardingGate,
+        estimatedArrivalTime,
+        arrivalTerminal, 
+    } = flightStatus as FlightStatus;
+    const { departureDateTime } = segment;
+
+    const departureTime = new DateService(new Date(departureDateTime)).displayTime();
+    const arrivalTime = new DateService(new Date(estimatedArrivalTime)).displayTime();
+
     return (
         <Container>
             <Title>
@@ -22,33 +40,35 @@ export const DetailsTable = () => {
             </Title>
             <Table
                 type='Departure'
+                // TODO: Change this place for the real one
                 place='Ciudad de México - AICM'
                 data={[
                     {
                         title: 'Terminal',
-                        info: '2'
+                        info: boardingTerminal
                     },
                     {
                         title: 'Gate',
-                        info: '62'
+                        info: boardingGate
                     },
                     {
                         title: 'Date',
-                        info: '06:00'
+                        info: departureTime
                     },
                 ]}
             />
             <Table
                 type='Arrival'
+                // TODO: Change this place for the real one
                 place='Cancún - Terminal 4'
                 data={[
                     {
                         title: 'Terminal',
-                        info: '4'
+                        info: arrivalTerminal
                     },
                     {
                         title: 'Est. Landing',
-                        info: '09:21'
+                        info: arrivalTime
                     },
 
                 ]}
