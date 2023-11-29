@@ -6,8 +6,12 @@ export const TimerStatus = () => {
     return (
         <Container>
             <AirplaneTimerStatus
-                progress={0.7}
                 hideDuration
+                arrivalDate={new Date()}
+                arrivalPlace='CAN'
+                departureDate={new Date()}
+                departurePlace='MEX'
+                status='ON_TIME'
             />
         </Container>
     )

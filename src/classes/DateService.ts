@@ -23,6 +23,10 @@ export class DateService extends DateProvider {
             end: date
         });
 
-        return `${hours}h${minutes}m`;
+        return `${hours}h ${minutes}m`;
+    }
+
+    public displayTime(): string {
+        return format(this.date, 'HH:mm');
     }
 }

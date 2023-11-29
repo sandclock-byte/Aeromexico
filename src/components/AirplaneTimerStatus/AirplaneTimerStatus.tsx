@@ -3,32 +3,59 @@ import styled from 'styled-components/native';
 import { AirplaneLine } from './AirplaneLine';
 import { AirplaneStatusProvider } from '../../context/AirplaneStatusContext';
 import { View } from 'react-native';
+import { DateService } from '../../classes/DateService';
 
 type Props = {
-    progress: number;
+    arrivalDate: Date;
+    arrivalPlace: string;
+    departureDate: Date;
+    departurePlace: string;
     hideDuration?: boolean;
+    status: string;
 };
 
-export const AirplaneTimerStatus = ({ progress, hideDuration }: Props) => {
+export const AirplaneTimerStatus = ({
+    arrivalDate,
+    arrivalPlace,
+    departureDate,
+    departurePlace,
+    hideDuration,
+    status,
+}: Props) => {
+
+    // TODO: Calculate progress in real time (Delete this condition)
+    const progress = status === 'ARRIVED'
+        ? 1
+        : status === 'DELAYED'
+            ? 0
+            : status === 'ON_TIME'
+                ? 0
+                : 0.5;
+
+    const departureTime = new DateService(departureDate).displayTime();
+    const arrivalTime = new DateService(arrivalDate).displayTime();
+
+    const duration = new DateService(arrivalDate).timeRemaining(departureDate);
+
     return (
         <AirplaneStatusProvider progress={progress}>
             <View>
                 <Header>
-                    <HourHand>06:24</HourHand>
+                    <HourHand>{departureTime}</HourHand>
                     <AirplaneLine />
-                    <HourHand>09:21</HourHand>
+                    <HourHand>{arrivalTime}</HourHand>
                 </Header>
 
                 <Body>
-                    <Place>MEX</Place>
+                    <Place>{departurePlace}</Place>
                     <DurationContainer>
                         {
                             !hideDuration && (
-                                <Duration>2h 28m</Duration>
+                                <Duration>{duration}</Duration>
                             )
                         }
                     </DurationContainer>
-                    <Place>CUN</Place>
+                    <Place>{arrivalPlace}</Place>
                 </Body>
             </View>
         </AirplaneStatusProvider>

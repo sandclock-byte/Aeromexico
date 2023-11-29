@@ -12,5 +12,7 @@ export abstract class DateProvider {
     abstract display(): string;
 
     abstract timeRemaining(date: Date): string;
+
+    abstract displayTime (date: Date): string;
     
 }

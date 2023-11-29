@@ -15,9 +15,21 @@ type Props = {
 
 export const FlightStatusCard = ({ item }: Props) => {
 
+  const { segment } = item;
+  const {
+    departureAirport,
+    departureDateTime,
+    arrivalAirport,
+    arrivalDateTime,
+    flightStatus,
+    marketingCarrier,
+    marketingFlightCode,
+  } = segment;
+
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handlePressDetails = () => {
+    // TODO: dispatch action to set flight Details
     navigation.navigate('FlightDetails');
   };
 
@@ -32,12 +44,16 @@ export const FlightStatusCard = ({ item }: Props) => {
 
       <Body>
         <AirplaneTimerStatus
-          progress={0.7}
+          arrivalDate={new Date(arrivalDateTime)}
+          arrivalPlace={arrivalAirport}
+          departureDate={new Date(departureDateTime)}
+          departurePlace={departureAirport}
+          status={flightStatus}
         />
       </Body>
 
       <Footer>
-        <FlightNumber>{`${'AM'} ${500}`}</FlightNumber>
+        <FlightNumber>{`${marketingCarrier} ${marketingFlightCode}`}</FlightNumber>
         <DetailsButton
           activeOpacity={0.8}
           onPress={handlePressDetails}
