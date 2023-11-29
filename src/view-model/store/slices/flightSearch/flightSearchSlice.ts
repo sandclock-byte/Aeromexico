@@ -1,11 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { FlightStatus } from '../../../interfaces/FlightStatus';
-import { Place } from '../../../types';
+import { FlightNumber, Place } from '../../../types';
 
 export interface FlightSearchState {
     arrival: Place | null;
+    dateOfDeparture: Date;
     departure: Place | null;
-    flightNumber: string;
+    flightNumber: FlightNumber;
     flightResults: FlightStatus[];
     isLoading: boolean;
     searchingtype: 'flightNumber' | 'destination';
@@ -13,8 +14,9 @@ export interface FlightSearchState {
 
 const initialState: FlightSearchState = {
     arrival: null,
+    dateOfDeparture: new Date(2023,10,21),
     departure: null,
-    flightNumber: '',
+    flightNumber: {number: '500', carrier: 'AM'},
     flightResults: [],
     isLoading: false,
     searchingtype: 'flightNumber'
@@ -30,15 +32,19 @@ export const flightSearchSlice = createSlice({
             state.isLoading = false;
         },
 
-        setFlightNumber: (state, action: PayloadAction<string>) => {
+        updateFlightNumber: (state, action: PayloadAction<FlightNumber>) => {
             state.flightNumber = action.payload;
         },
 
-        setDeparture: (state, action: PayloadAction<Place>) => {
+        updateDepartureDate: (state, action: PayloadAction<Date>) => {
+            state.dateOfDeparture = action.payload;
+        },
+
+        updateDeparture: (state, action: PayloadAction<Place>) => {
             state.departure = action.payload;
         },
 
-        setArrival: (state, action: PayloadAction<Place>) => {
+        upDateArrival: (state, action: PayloadAction<Place>) => {
             state.arrival = action.payload;
         },
 
@@ -57,9 +63,10 @@ export const flightSearchSlice = createSlice({
 
 export const {
     setFlightResults,
-    setFlightNumber,
-    setDeparture,
-    setArrival,
+    updateFlightNumber,
+    updateDepartureDate,
+    updateDeparture,
+    upDateArrival,
     startSearchingByFlightNumber,
     startSearchingByDestination
 } = flightSearchSlice.actions;
