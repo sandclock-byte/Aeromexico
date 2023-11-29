@@ -12,7 +12,9 @@ export const Airplane = () => {
             <Line
                 progress={progress}
             >
-                <IconContainer>
+                <IconContainer
+                    progress={progress}
+                >
                     <Icon
                         name='airplane'
                         size={30}
@@ -37,11 +39,11 @@ const Line = styled.View<{ progress: number }>`
     border-radius: 1px;
 `;
 
-const IconContainer = styled.View`
+const IconContainer = styled.View<{ progress: number }>`
     position: absolute;
     justify-content: center;
     align-items: flex-end;
-    right: 0px;
+    right: ${({ progress }) => `${(progress * 28) - 28}px`};
     top: -16px;
 `;
 
