@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useFadeIn } from '../hooks/useFadeIn';
-import { DetailsTable, FlightInfo, TimerStatus } from '../components/FlightDetails';
+import { DetailsTable, FlightInfo, TimerStatus, BackButton } from '../components/FlightDetails';
 
 export const FlightDetails = () => {
 
@@ -25,6 +25,8 @@ export const FlightDetails = () => {
                 <TimerStatus />
                 <DetailsTable />
             </DetailsContainer>
+
+            <BackButton />
 
         </Container>
     )
