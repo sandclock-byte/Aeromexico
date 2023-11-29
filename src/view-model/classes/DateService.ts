@@ -16,14 +16,14 @@ export class DateService extends DateProvider {
         return format(this.date, 'eeee, MMM d');
     }
 
-    public timeRemaining(date: Date): string {
+    public static timeRemaining(minutes: number): string {
 
-        const {hours, minutes} = intervalToDuration({
-            start: this.date,
-            end: date
+        const { hours, minutes: minutesData } = intervalToDuration({
+            start: new Date(0),
+            end: new Date(minutes * 60 * 1000)
         });
 
-        return `${hours}h ${minutes}m`;
+        return `${hours}h ${minutesData}m`;
     }
 
     public displayTime(): string {
