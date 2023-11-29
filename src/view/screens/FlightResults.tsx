@@ -1,17 +1,18 @@
-import React from 'react';
+
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
+
 import { Header, ResultsInfo } from '../components/FlightResults';
-import { FlatList, View } from 'react-native';
-import response from '../../data/NumerodeVueloResponse.json'
-import { FlightStatusResponse } from '../../interfaces/FlightStatusResponse';
+import { FlatList } from 'react-native';
+import response from '../../model/data/NumerodeVueloResponse.json'
+import { FlightStatus } from '../../interfaces/FlightStatus';
 import { FlightStatusCard } from '../components/FlightResults';
 
 export const FlightResults = () => {
 
     const { top } = useSafeAreaInsets();
 
-    const { flightStatusCollection }: FlightStatusResponse = response;
+    const { flightStatusCollection }: { flightStatusCollection: FlightStatus[] } = response;
 
     return (
         <Container paddingTop={top}>
@@ -24,7 +25,7 @@ export const FlightResults = () => {
                 data={flightStatusCollection}
                 keyExtractor={(item) => item.segment.segmentCode}
                 renderItem={({ item }) => (
-                    <FlightStatusCard item={item}/>
+                    <FlightStatusCard item={item} />
                 )}
             />
         </Container>

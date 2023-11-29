@@ -1,8 +1,4 @@
 
-export interface FlightStatusResponse {
-    flightStatusCollection: FlightStatus[];
-}
-
 export interface FlightStatus {
     status:                   string;
     boardingTerminal:         string;
@@ -18,14 +14,15 @@ export interface FlightStatus {
     legType:                  string;
     totalFlightTimeInMinutes: number;
 }
- interface OutGate {
+
+interface OutGate {
     accuracy:      string;
     dateTimeUtc:   string;
     dateTimeLocal: string;
     sourceType:    string;
 }
 
-export interface Segment {
+interface Segment {
     segmentCode:             string;
     departureAirport:        string;
     arrivalAirport:          string;
