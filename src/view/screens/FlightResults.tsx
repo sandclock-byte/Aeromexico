@@ -4,15 +4,16 @@ import styled from 'styled-components/native';
 
 import { Header, ResultsInfo } from '../components/FlightResults';
 import { FlatList } from 'react-native';
-import response from '../../model/data/NumerodeVueloResponse.json'
-import { FlightStatus } from '../../view-model/interfaces/FlightStatus';
 import { FlightStatusCard } from '../components/FlightResults';
+import { useSearchingData } from '../../view-model/hooks/useSearchingData';
 
 export const FlightResults = () => {
 
     const { top } = useSafeAreaInsets();
 
-    const { flightStatusCollection }: { flightStatusCollection: FlightStatus[] } = response;
+    const { flightSearch } = useSearchingData();
+
+    const { isLoading, flightResults } = flightSearch;
 
     return (
         <Container paddingTop={top}>
@@ -20,14 +21,19 @@ export const FlightResults = () => {
             <ResultsInfo
                 details='Mexico City to Cancún'
                 totalResults={1}
+                isLoading={isLoading}
             />
-            <ResultList
-                data={flightStatusCollection}
-                keyExtractor={(item) => item.segment.segmentCode}
-                renderItem={({ item }) => (
-                    <FlightStatusCard item={item} />
-                )}
-            />
+            {
+                (!isLoading) && (
+                    <ResultList
+                        data={flightResults}
+                        keyExtractor={(item) => item.segment.segmentCode}
+                        renderItem={({ item }) => (
+                            <FlightStatusCard item={item} />
+                        )}
+                    />
+                )
+            }
         </Container>
     )
 }

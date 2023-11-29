@@ -5,7 +5,7 @@ export type GetFlightByNumberParams = {
 }
 
 export type GetFlightByDestinationParams = {
-    origin: string;
-    destination: string;
+    origin?: string;
+    destination?: string;
     date: Date;
 }

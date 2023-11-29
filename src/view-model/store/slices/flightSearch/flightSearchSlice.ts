@@ -4,7 +4,7 @@ import { FlightNumber, Place } from '../../../types';
 
 export interface FlightSearchState {
     arrival: Place | null;
-    dateOfDeparture: Date;
+    dateOfDeparture: string;
     departure: Place | null;
     flightNumber: FlightNumber;
     flightResults: FlightStatus[];
@@ -13,9 +13,9 @@ export interface FlightSearchState {
 }
 
 const initialState: FlightSearchState = {
-    arrival: null,
-    dateOfDeparture: new Date(2023,10,21),
-    departure: null,
+    arrival: {code: 'CUN', name: 'Cancún'},
+    dateOfDeparture: '2023-11-21T06:00:00.000Z',
+    departure: {code: 'MEX', name: 'Mexico City'},
     flightNumber: {number: '500', carrier: 'AM'},
     flightResults: [],
     isLoading: false,
@@ -36,7 +36,7 @@ export const flightSearchSlice = createSlice({
             state.flightNumber = action.payload;
         },
 
-        updateDepartureDate: (state, action: PayloadAction<Date>) => {
+        updateDepartureDate: (state, action: PayloadAction<string>) => {
             state.dateOfDeparture = action.payload;
         },
 

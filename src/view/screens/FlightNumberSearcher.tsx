@@ -6,6 +6,7 @@ import { FlightNumberInput } from '../components/FlightNumberSearcher';
 import { DateInput } from '../components/DateInput';
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
 import { RootTabScreenList } from '../navigators/SearcherNavigator';
+import { useSearchingData } from '../../view-model/hooks/useSearchingData';
 
 const { width } = Dimensions.get('window');
 
@@ -13,8 +14,11 @@ type Props = MaterialTopTabScreenProps<RootTabScreenList, 'FlightNumberSearcher'
 
 export const FlightNumberSearcher = ({ navigation }: Props) => {
 
-    const handleSearchFlight = () => { 
+    const { flightSearch, searchFlightByNumber } = useSearchingData();
+
+    const handleSearchFlight = () => {
         navigation.getParent()?.navigate('FlightResults');
+        searchFlightByNumber();
     }
 
     const handleSearchByDestination = () => {
@@ -28,8 +32,8 @@ export const FlightNumberSearcher = ({ navigation }: Props) => {
                     <FlightNumberInput
                         flightNumber='500'
                     />
-                    <DateInput 
-                        date={new Date(2023,10,21)}
+                    <DateInput
+                        date={new Date(2023, 10, 21)}
                     />
                 </InputsContainer>
                 <Button

@@ -1,4 +1,4 @@
-import { updateFlightNumber, updateDepartureDate } from '../store/slices/flightSearch';
+import { updateFlightNumber, updateDepartureDate, searchByFlightNumber } from '../store/slices/flightSearch';
 import { FlightNumber } from '../types';
 import { useDispatch } from './useDispatch';
 import { searchByDestination } from '../store/slices/flightSearch';
@@ -13,7 +13,7 @@ export const useSearchingData = () => {
         dispatch(updateFlightNumber(flightNumber));
     }
 
-    const setDepartureDate = (date: Date) => {
+    const setDepartureDate = (date: string) => {
         dispatch(updateDepartureDate(date));
     }
 
@@ -21,11 +21,16 @@ export const useSearchingData = () => {
         dispatch(searchByDestination());
     }
 
+    const searchFlightByNumber = () => {
+        dispatch(searchByFlightNumber());
+    }
+
     return {
         flightSearch,
         setFlightNumber,
         setDepartureDate,
-        searchFlightByDestination
+        searchFlightByDestination,
+        searchFlightByNumber,
     }
 
 };
