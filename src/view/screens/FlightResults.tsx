@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import { Header, ResultsInfo } from '../components/FlightResults';
 import { FlatList } from 'react-native';
 import response from '../../model/data/NumerodeVueloResponse.json'
-import { FlightStatus } from '../../interfaces/FlightStatus';
+import { FlightStatus } from '../../view-model/interfaces/FlightStatus';
 import { FlightStatusCard } from '../components/FlightResults';
 
 export const FlightResults = () => {

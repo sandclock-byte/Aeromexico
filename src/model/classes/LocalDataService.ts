@@ -1,6 +1,6 @@
 import OrigenDestinoResponse from '../data/OrigenDestinoResponse.json'
 import NumerodeVueloResponse from '../data/NumerodeVueloResponse.json'
-import { FlightStatus } from "../../interfaces/FlightStatus";
+import { FlightStatus } from "../../view-model/interfaces/FlightStatus";
 import { GetFlightByDestinationParams, GetFlightByNumberParams } from "../types/GetFlightByNumberParams";
 import { FlightProvider } from "./FlightProvider";
 

@@ -1,4 +1,4 @@
-import { FlightStatus } from "../../interfaces/FlightStatus";
+import { FlightStatus } from "../../view-model/interfaces/FlightStatus";
 import { GetFlightByDestinationParams, GetFlightByNumberParams } from "../types/GetFlightByNumberParams";
 
 export abstract class FlightProvider {

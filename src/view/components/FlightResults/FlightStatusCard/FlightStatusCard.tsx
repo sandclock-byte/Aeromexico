@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { FlightStatus } from '../../../../interfaces/FlightStatus';
+import { FlightStatus } from '../../../../view-model/interfaces/FlightStatus';
 import { Icon } from '../../Icon';
 import { FavoriteSwitch, StatusTag } from './components';
 import { useNavigation } from '@react-navigation/native';

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 import { Icon } from '../../Icon'
-import { DateService } from '../../../../classes/DateService';
+import { DateService } from '../../../../view-model/classes/DateService';
 
 export const DateInfo = () => {
 

@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Icon } from './Icon';
 import { TouchableWithoutFeedback } from 'react-native';
-import { DateService } from '../../classes/DateService';
+import { DateService } from '../../view-model/classes/DateService';
 
 type Props = {
     date?: Date;
-
 };
 
 export const DateInput = ({ date = new Date() }: Props) => {
