@@ -1,5 +1,4 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 import styled from 'styled-components/native';
 
 type Props = {
@@ -11,16 +10,25 @@ type Props = {
 type TypeInput = 'Origin' | 'Destination';
 
 export const PlaceInput = ({ typeInput, place, placeCode }: Props) => {
+
+    const handlePress = () => {
+        console.log('Open place picker');
+    }
+
     return (
-        <Container typeInput={typeInput}>
-            <Title>{typeInput}</Title>
-            <PlaceText adjustsFontSizeToFit>
-                {`${place} `}
-                <Code>
-                    {placeCode}
-                </Code>
-            </PlaceText>
-        </Container>
+        <TouchableWithoutFeedback
+            onPress={handlePress}
+        >
+            <Container typeInput={typeInput}>
+                <Title>{typeInput}</Title>
+                <PlaceText adjustsFontSizeToFit>
+                    {`${place} `}
+                    <Code>
+                        {placeCode}
+                    </Code>
+                </PlaceText>
+            </Container>
+        </TouchableWithoutFeedback>
     )
 }
 
