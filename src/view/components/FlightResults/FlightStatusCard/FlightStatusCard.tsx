@@ -8,12 +8,16 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../navigators/AppNavigator';
 import { AirplaneTimerStatus } from '../../AirplaneTimerStatus';
+import { useFlightStatus } from '../../../../view-model/hooks/useFlightStatus';
 
 type Props = {
   item: FlightStatus;
 };
 
 export const FlightStatusCard = ({ item }: Props) => {
+
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { setFlightStatus } = useFlightStatus();
 
   const { segment } = item;
   const {
@@ -26,10 +30,9 @@ export const FlightStatusCard = ({ item }: Props) => {
     marketingFlightCode,
   } = segment;
 
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handlePressDetails = () => {
-    // TODO: dispatch action to set flight Details
+    setFlightStatus(item);
     navigation.navigate('FlightDetails');
   };
 
