@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Icon } from './Icon';
 import { TouchableWithoutFeedback } from 'react-native';
-import { DateService } from '../classes/DateService';
+import { DateService } from '../../classes/DateService';
 
 type Props = {
     date?: Date;

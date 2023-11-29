@@ -3,8 +3,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import { Header, ResultsInfo } from '../components/FlightResults';
 import { FlatList, View } from 'react-native';
-import response from '../data/NumerodeVueloResponse.json'
-import { FlightStatusResponse } from '../interfaces/FlightStatusResponse';
+import response from '../../data/NumerodeVueloResponse.json'
+import { FlightStatusResponse } from '../../interfaces/FlightStatusResponse';
 import { FlightStatusCard } from '../components/FlightResults';
 
 export const FlightResults = () => {

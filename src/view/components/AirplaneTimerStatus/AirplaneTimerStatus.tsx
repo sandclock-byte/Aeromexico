@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { AirplaneLine } from './AirplaneLine';
 import { AirplaneStatusProvider } from '../../context/AirplaneStatusContext';
 import { View } from 'react-native';
-import { DateService } from '../../classes/DateService';
+import { DateService } from '../../../classes/DateService';
 
 type Props = {
     arrivalDate: Date;
